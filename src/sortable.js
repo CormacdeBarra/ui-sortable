@@ -189,7 +189,9 @@ angular.module('ui.sortable', [])
                 ui.item.sortable.droptarget = droptarget;
 
                 var droptargetScope = getElementScope(ui.item.sortable._connectedSortables, droptarget);
-                ui.item.sortable.droptargetModel = droptargetScope.ngModel;
+                if(droptargetScope !== null){
+                  ui.item.sortable.droptargetModel = droptargetScope.ngModel;
+                }
 
                 // Cancel the sort (let ng-repeat do the sort for us)
                 // Don't cancel if this is the received list because it has
